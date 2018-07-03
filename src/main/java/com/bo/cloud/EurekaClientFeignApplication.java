@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient // 注册到服务中心
-@EnableFeignClients // 开启Feign的功能
+@EnableFeignClients // 开启Feign的功能(如果启动类不在根路径则必须使用basePackages指定扫描路径)
 @EnableHystrix // 开启断路器Hystrix
 @EnableHystrixDashboard // 开启断路器仪表盘HystrixDashboard
 public class EurekaClientFeignApplication {

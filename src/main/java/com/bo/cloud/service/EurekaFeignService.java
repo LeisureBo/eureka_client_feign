@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Version 2018年6月23日　下午2:40:58
  * @码云 https://gitee.com/LeisureBo
  */
-// 通过@FeignClient注解来指定调用哪个服务
+// 通过@FeignClient注解来指定调用哪个服务(服务名称不能包含下划线)
 // 在@FeignClient注解中添加fallback参数指定熔断类
 @FeignClient(value = "eureka-client-provider", fallback = EurekaFeignServiceHystrix.class)
 public interface EurekaFeignService {
 	
 	// @RequestMapping指定调用服务的哪个接口
+	// 如果有@PathVariable注解必须使用value属性指定路径模板参数名
 	@RequestMapping("/test/say")
 	public String saySomethingFromClientOne(@RequestParam("str") String content);
 }
