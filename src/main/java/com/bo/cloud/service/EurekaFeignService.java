@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 // 通过@FeignClient注解来指定调用哪个服务(服务名称不能包含下划线)
 // 在@FeignClient注解中添加fallback参数指定熔断类
-@FeignClient(value = "eureka-client-provider", fallback = EurekaFeignServiceHystrix.class)
+@FeignClient(value = "${feign.invoke.service-id}", fallback = EurekaFeignServiceHystrix.class)
 public interface EurekaFeignService {
 	
 	// @RequestMapping指定调用服务的哪个接口
